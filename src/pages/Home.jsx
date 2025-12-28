@@ -2,6 +2,9 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import MainBody from '../components/MainBody'
 import Projects from '../components/Projects'
+import Services from '../components/Services'
+import WhyChooseUs from '../components/WhyChoseUs'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
@@ -15,6 +18,15 @@ const Home = () => {
       </div>
       <div className="projects">
         <Projects/>
+      </div>
+      <div className="services">
+        <Services/>
+      </div>
+      <div className="choseUs">
+        <WhyChooseUs/>
+      </div>
+      <div className="footer">
+        <Footer/>
       </div>
     </div>
   )

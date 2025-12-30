@@ -1,65 +1,82 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Stairs = (props) => {
+const Stairs = ({ children }) => {
+  const stairAnimate = useRef(null);
+  const appRef = useRef(null);
+  const tlRef = useRef(null); 
+  const routeLocation = useLocation().pathname;
 
-    const stairAnimate = useRef(null);
-    const appRef = useRef(null);
+  useGSAP(() => {
+    if (tlRef.current) {
+      tlRef.current.kill();
+    }
 
+    gsap.killTweensOf(".stair");
+    gsap.killTweensOf(".stair-text");
+    gsap.killTweensOf(appRef.current);
 
-    const routeLocation = useLocation().pathname;
+    // Faster defaults: shorter duration
+    const tl = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.5 } // was 0.8
+    });
+    tlRef.current = tl;
 
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            defaults: { ease: "power4.inOut", duration: 0.8 }
-        });
+    tl.set(stairAnimate.current, { autoAlpha: 1 });
 
-        // Show overlay
-        tl.set(stairAnimate.current, { autoAlpha: 1 });
+    // Faster stagger
+    tl.fromTo(".stair", { height: 0 }, { height: "100%", stagger: 0.07 });
 
-        // Animate stairs in (grow from 0 to full height)
-        tl.fromTo(".stair",
-            { height: 0 },
-            { height: "100%", stagger: 0.1 }
-        );
+    tl.fromTo(
+      ".stair-text",
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, stagger: 0.07 },
+      "-=0.4" // overlap slightly
+    );
 
-        // Animate stairs out (slide down off screen)
-        tl.to(".stair", {
-            y: "100%",
-            stagger: 0.1
-        });
+    tl.to(".stair", { y: "100%", stagger: 0.07 });
+    tl.to(".stair-text", { opacity: 0, y: 50, stagger: 0.07 }, "-=0.6");
 
-        // Hide overlay after animation
-        tl.set(stairAnimate.current, { autoAlpha: 0 });
+    tl.set(stairAnimate.current, { autoAlpha: 0 });
 
-        // Reset stairs position for next transition
-        tl.set(".stair", { y: "0%", height: "100%" });
+    tl.add(() => {
+      gsap.set(".stair", { y: "0%", height: "100%" });
+      gsap.set(".stair-text", { opacity: 0, y: 0 });
+    });
 
-        gsap.from(appRef.current,{
-            opacity:0,
-            delay:1
-        })
+    // Faster app content fade-in
+    tl.from(appRef.current, {
+      opacity: 0,
+      y: 20, // smaller movement for snappier feel
+      duration: 0.8 // was 1
+    }, "-=1"); // overlap earlier
+  }, [routeLocation]);
 
-    }, [routeLocation]);
-    return (
+  return (
+    <div className="bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#0f172a] min-h-screen">
+      <div
+        className="transition-anim fixed inset-0 z-50 w-screen h-screen flex pointer-events-none text-white"
+        ref={stairAnimate}
+      >
+        {["D", "E", "V", "O", "R", "B", "I", "T", "S"].map((letter, i) => (
+          <div
+            key={i}
+            className="stair flex-1 h-full bg-blue-900 flex items-center justify-center"
+          >
+            <span className="stair-text font-extrabold text-5xl tracking-widest drop-shadow-lg">
+              {letter}
+            </span>
+          </div>
+        ))}
+      </div>
 
+      <div ref={appRef}>
+        {children}
+      </div>
+    </div>
+  );
+};
 
-        <div className='bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#0f172a]'>
-            {/* Stair overlay always above everything */}
-            <div className="transition-anim fixed inset-0 z-50  w-screen h-screen flex pointer-events-none" ref={stairAnimate}>
-                <div className="stair h-full w-[20%] bg-[#111]"></div>
-                <div className="stair h-full w-[20%] bg-[#111]"></div>
-                <div className="stair h-full w-[20%] bg-[#111]"></div>
-                <div className="stair h-full w-[20%] bg-[#111]"></div>
-                <div className="stair h-full w-[20%] bg-[#111]"></div>
-            </div>
-            <div ref={appRef}>
-                {props.children}
-            </div>
-        </div>
-    )
-}
-
-export default Stairs
+export default Stairs;

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCode, FaServer, FaLayerGroup, FaTools, FaPlug, FaMobileAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ServiceComponent = ({ icon: Icon, title, description, details }) => {
   return (
@@ -162,9 +163,11 @@ const ServicesPage = () => {
         <p className="text-gray-400 mb-6">
           Interested in collaborating or exploring my work? Reach out and let’s craft something cinematic.
         </p>
+        <Link to = '/contact'>
         <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition">
           Contact Me
         </button>
+        </Link>
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ const MainBody = () => {
           </div>
 
           <h1 className="tagline text-3xl md:text-5xl font-extrabold leading-tight text-gray-100">
-            DevOrbits — <span className="text-indigo-400">Crafting reliable web experiences</span> that feel cinematic.
+            ZenOrbits — <span className="text-indigo-400">Crafting reliable web experiences</span> that feel cinematic.
           </h1>
 
           <p className="text-gray-400 text-base md:text-lg max-w-2xl">

@@ -72,7 +72,7 @@ const Footer = () => {
 
         {/* Brand / Tagline */}
         <div ref={brandRef} className="flex flex-col gap-3 md:w-1/3">
-          <h2 className="text-indigo-400 text-2xl font-bold">DevOrbits</h2>
+          <h2 className="text-indigo-400 text-2xl font-bold">ZenOrbits</h2>
           <p className="text-sm text-gray-400">
             Crafting reliable web experiences that feel cinematic, scalable, and future‑proof.
           </p>
@@ -163,7 +163,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div ref={copyrightRef} className="mt-10 pt-6 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} DevOrbits. All rights reserved.
+        © {new Date().getFullYear()} ZenOrbits. All rights reserved.
       </div>
     </footer>
   );

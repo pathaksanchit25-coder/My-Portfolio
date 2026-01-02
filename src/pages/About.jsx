@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -13,7 +14,7 @@ const About = () => {
         </h1>
         <p className="text-gray-400 max-w-2xl mx-auto">
           Crafting cinematic, reliable, and scalable web experiences under the brand
-          <span className="text-blue-400 font-semibold"> DevOrbits</span>. I merge technical precision
+          <span className="text-blue-400 font-semibold"> ZenOrbits</span>. I merge technical precision
           with creative polish to deliver immersive digital journeys.
         </p>
       </div>
@@ -118,10 +119,13 @@ const About = () => {
         <p className="text-gray-400 mb-6">
           Interested in collaborating or exploring my work? Reach out and let’s craft something cinematic.
         </p>
+        <Link to ='/contact'>
         <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition">
           Contact Me
         </button>
+        </Link>
       </div>
+      
     </section>
   );
 };

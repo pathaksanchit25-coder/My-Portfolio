@@ -72,9 +72,7 @@ const Contact = () => {
         <p className="text-gray-400 mb-6">
           Whether it’s a project idea or collaboration, I’d love to hear from you.
         </p>
-        <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition">
-          Say Hello
-        </button>
+       
       </div>
     </section>
   );

@@ -99,7 +99,7 @@ const Stairs = ({ children }) => {
         className="transition-anim fixed inset-0 z-40 w-screen h-screen flex pointer-events-none text-white"
         ref={stairAnimate}
       >
-        {["D", "E", "V", "O", "R", "B", "I", "T", "S"].map((letter, i) => (
+        {["Z", "E", "N", "O", "R", "B", "I", "T", "S"].map((letter, i) => (
           <div
             key={i}
             className="stair flex-1 h-full bg-gradient-to-tr from-blue-900 via-indigo-900 to-cyan-900 flex items-center justify-center"

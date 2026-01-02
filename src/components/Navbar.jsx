@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div className="logo-name flex items-center gap-3 md:gap-4">
                     <img src={Penguin} alt="logo" className="h-10 md:h-14 drop-shadow-md" />
                     <span className="text-xl md:text-3xl font-extrabold tracking-wide text-gray-200 text-indigo-400">
-                        DevOrbits
+                        ZenOrbits
                     </span>
                 </div>
                 </Link>

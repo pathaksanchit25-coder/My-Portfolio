@@ -71,7 +71,7 @@ const Projects = () => {
                         category="E-Commerce"
                         description="ShopOrbit is a full‑stack e‑commerce platform built with React, Tailwind, Express, and MongoDB. It offers smooth product browsing, cart management, and secure checkout, all wrapped in a responsive design. With GSAP‑powered animations and premium branding, it delivers a cinematic shopping experience that’s fast, scalable, and accessible."
                         link="https://github.com/pathaksanchit25-coder/shoporbits"
-                        status="Completed"
+                        status="In Progress"
                     />
                     <ProjectCard
                         className="first-right-card"
@@ -95,7 +95,7 @@ const Projects = () => {
                         category="Productivity Platform"
                         description="WorkOrbit is a productivity and project management tool built with the MERN stack. It provides task tracking, team collaboration, and cinematic dashboards powered by GSAP animations. Designed for scalability and accessibility, it helps teams stay organized and efficient in a visually polished environment."
                         link="https://github.com/pathaksanchit25-coder/workorbit"
-                        status="Completed"
+                        status="In Progress"
                     />
                 </div>
             </div>

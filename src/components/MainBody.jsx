@@ -70,7 +70,7 @@ const MainBody = () => {
           <span className="text-lg">GitHub</span>
         </a>
 
-        <a href="https://www.instagram.com/dev_orbits/" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.instagram.com/zen_orbits/" target="_blank" rel="noopener noreferrer"
            className="flex items-center justify-between w-64 px-6 py-4 rounded-xl 
                       bg-white/10 backdrop-blur-md text-gray-200 font-semibold 
                       hover:bg-pink-500 hover:text-white transition-all duration-300 shadow-lg">
@@ -86,7 +86,7 @@ const MainBody = () => {
           <span className="text-lg">YouTube</span>
         </a>
 
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.linkedin.com/in/sanchit-pathak-5a19b13a2/" target="_blank" rel="noopener noreferrer"
            className="flex items-center justify-between w-64 px-6 py-4 rounded-xl 
                       bg-white/10 backdrop-blur-md text-gray-200 font-semibold 
                       hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-lg">
